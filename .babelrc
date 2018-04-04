@@ -1,0 +1,14 @@
+{
+  "presets": [
+    ["env", {"modules": false}],
+    "stage-2",
+    "stage-3",
+    "react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    ["module-resolver", {
+      "root": ["./src"]
+    }]
+  ]
+}
