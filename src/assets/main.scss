@@ -1,0 +1,44 @@
+@import './screens.scss';
+// @import './fonts.scss';
+
+body {
+  // font-family: 'CirceRounded Regular';
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input {
+  border: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+textarea {
+
+  &:focus {
+    outline: none;
+  }
+}
