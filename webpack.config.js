@@ -101,4 +101,6 @@ module.exports = {
     hot: true,
     // enable HMR on the server
   },
+
+  mode: 'development',
 };
