@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux-immutable';
 import { entitiesReducer, queriesReducer, resultsReducer } from '@digitalwing.co/redux-query-immutable';
 
-// import { reducer as form } from 'redux-form';
+// import { reducer as form } from 'redux-form/immutable';
 
 export const getQueries = state => state.get('queries');
 export const getEntities = state => state.get('entities');
