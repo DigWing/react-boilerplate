@@ -93,7 +93,8 @@
     "rules": {
       "react/jsx-filename-extension": "off",
       "import/prefer-default-export": "warn",
-      "implicit-arrow-linebreak": "off"
+      "implicit-arrow-linebreak": "off",
+      "react/forbid-prop-types": "off"
     }
   },
   "browserslist": [

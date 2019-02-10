@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import { compose, lifecycle } from 'recompose';
 import { apiHOCs } from 'components';
 
@@ -14,13 +13,13 @@ const HomeScreen = ({ redditPosts }) => (
         <div key={post.get('id')} style={{ paddingBottom: 50 }}>
           {post.get('title')}
         </div>
-      )).toArray()
+      ))
     }
   </div>
 );
 
 HomeScreen.propTypes = {
-  redditPosts: PropTypes.instanceOf(Immutable.List).isRequired,
+  redditPosts: PropTypes.object.isRequired,
 };
 
 export default compose(

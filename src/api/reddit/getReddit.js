@@ -7,9 +7,9 @@ export default ({ redditName }) => ({
   url: endpoints.getRedditUrl({ redditName }),
   transform: response => normalize(response.data.children, posts.schemasArray).entities,
   transformResult: response => ({
-    reddits: normalize(response.data.children, posts.schemasArray).result,
+    posts: normalize(response.data.children, posts.schemasArray).result,
   }),
-  queryKey: endpoints.getRedditUrl({}),
+  queryKey: endpoints.getRedditUrl(),
   meta: {
     // authToken: true,
   },
@@ -22,7 +22,7 @@ export default ({ redditName }) => ({
     posts: (prevEntities = Immutable.Map(), newEntities) => prevEntities.mergeDeep(newEntities),
   },
   updateResult: {
-    reddits:
+    posts:
       (prevResult = Immutable.List(), result) =>
         prevResult.toOrderedSet().union(result.toOrderedSet()).toList(), // || => result
   },

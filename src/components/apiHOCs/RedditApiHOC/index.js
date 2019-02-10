@@ -10,10 +10,10 @@ import { getRedditPosts } from './selectors';
 const RedditApiHOC = () => WrappedComponent => compose(
   connect(
     state => ({
-      redditPosts: getRedditPosts(state, 'reddits'),
+      redditPosts: getRedditPosts(state, 'posts'),
       redditIsFetching: querySelectors.isPending(
         state.get('queries'),
-        { queryKey: endpoints.getRedditUrl({}) },
+        { queryKey: endpoints.getRedditUrl() },
       ) || false,
     }),
     dispatch => ({
