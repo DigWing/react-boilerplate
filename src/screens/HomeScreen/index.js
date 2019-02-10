@@ -4,7 +4,6 @@ import Immutable from 'immutable';
 import { compose, lifecycle } from 'recompose';
 import { apiHOCs } from 'components';
 
-import 'assets/screens.scss';
 import './style.scss';
 
 const HomeScreen = ({ redditPosts }) => (
