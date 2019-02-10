@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose, lifecycle } from 'recompose';
-import apiHOCs from 'components/apiHOCs';
+import { apiHOCs } from 'components';
 
-import 'assets/screens.scss';
 import './style.scss';
 
 const HomeScreen = ({ redditPosts }) => (
-  <div>
+  <div className="home-layout">
     {console.log(redditPosts)}
     {
-      redditPosts.map(post =>
-        <div key={post.get('id')} style={{ marginTop: 50 }}>
+      redditPosts.map(post => (
+        <div key={post.get('id')} style={{ paddingBottom: 50 }}>
           {post.get('title')}
         </div>
-      ).toArray()
+      ))
     }
   </div>
 );
 
 HomeScreen.propTypes = {
-  redditPosts: PropTypes.any,
+  redditPosts: PropTypes.object.isRequired,
 };
 
 export default compose(
@@ -29,6 +28,6 @@ export default compose(
   lifecycle({
     componentDidMount() {
       this.props.getReddit({ redditName: 'reactjs' });
-    }
-  })
+    },
+  }),
 )(HomeScreen);

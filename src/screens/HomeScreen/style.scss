@@ -1,11 +1,9 @@
-@import '../../assets/screens.scss';
+@import '_variables';
 
 .home-layout {
+  background: aliceblue;
 
-  &__modal {
-    display: flex;
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 30px;
+  @media (max-width: $screenL) {
+    background: green;
   }
 }

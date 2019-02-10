@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { getEntities, getResults } from 'reducers';
 import Immutable from 'immutable';
 import { denormalize } from 'normalizr';
-import { reddit as redditSchemas } from 'schemas';
+import { posts } from 'schemas';
 
 export const getRedditPosts = createSelector(
   (state, resultKey) => getResults(state).get(resultKey, Immutable.List()),
@@ -10,7 +10,7 @@ export const getRedditPosts = createSelector(
   (result, entities) =>
     denormalize(
       result,
-      redditSchemas.arrayOfPostSchemas,
+      posts.schemasArray,
       entities,
     ),
 );

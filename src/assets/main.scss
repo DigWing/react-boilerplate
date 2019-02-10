@@ -1,8 +1,12 @@
-@import './screens.scss';
-// @import './fonts.scss';
+@import '_fonts';
+
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  // font-family: 'CirceRounded Regular';
+  font-family: 'CirceRounded Regular';
   margin: 0;
 }
 
