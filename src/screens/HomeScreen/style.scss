@@ -1,5 +1,9 @@
-@import '../../assets/screens.scss';
+@import '_variables';
 
 .home-layout {
   background: aliceblue;
+
+  @media (max-width: $screenL) {
+    background: green;
+  }
 }
