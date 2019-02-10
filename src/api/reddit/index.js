@@ -1,5 +1,5 @@
-import queries from './queries';
+import getReddit from './getReddit';
 
 export default {
-  queries,
+  getReddit,
 };

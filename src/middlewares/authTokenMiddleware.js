@@ -32,7 +32,7 @@ export default () => next => (action) => {
         console.log(err);
         return next(action);
       });
-  } else {
-    return next(action);
   }
+
+  return next(action);
 };
