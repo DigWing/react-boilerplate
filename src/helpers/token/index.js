@@ -1,3 +1,5 @@
+// Helpers for interacting with localStorage to store authToken
+
 const TOKEN = 'X-AuthToken';
 
 export const setToken = value => localStorage.setItem(TOKEN, value);

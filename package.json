@@ -1,15 +1,27 @@
 {
-  "name": "test-react-boilerplate",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-boilerplate",
+  "author": "Digital Wing",
+  "homepage": "https://github.com/DigWing/react-boilerplate",
+  "version": "0.2.0",
+  "keywords": [
+    "react",
+    "boilerplate",
+    "digital wing"
+  ],
+  "description": "React boilerplate, based on Digital Wing usual project architecture",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DigWing/react-boilerplate.git"
+  },
   "dependencies": {
     "@babel/core": "7.1.6",
     "@digitalwing.co/redux-query-immutable": "^2.3.9",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
-    "babel-jest": "23.6.0",
+    "babel-jest": "^24.7.1",
     "babel-loader": "8.0.4",
+    "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-named-asset-import": "^0.3.0",
     "babel-preset-react-app": "^7.0.0",
     "bfj": "6.1.1",
@@ -33,7 +45,7 @@
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
     "immutable": "^4.0.0-rc.12",
-    "jest": "23.6.0",
+    "jest": "^24.7.1",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
     "lodash": "^4.17.11",
@@ -47,13 +59,13 @@
     "postcss-preset-env": "6.3.1",
     "postcss-safe-parser": "4.0.1",
     "prop-types": "^15.6.2",
-    "react": "^16.7.0",
+    "react": "^16.8.4",
     "react-app-polyfill": "^0.2.0",
     "react-dev-utils": "^7.0.1",
-    "react-dom": "^16.7.0",
+    "react-dom": "^16.8.4",
     "react-redux": "^6.0.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-form": "^8.1.0",
@@ -91,10 +103,13 @@
       }
     },
     "rules": {
+      "jsx-a11y/label-has-associated-control": false,
+      "jsx-a11y/label-has-for": false,
       "react/jsx-filename-extension": "off",
       "import/prefer-default-export": "warn",
       "implicit-arrow-linebreak": "off",
-      "react/forbid-prop-types": "off"
+      "react/forbid-prop-types": "off",
+      "no-nested-ternary": "warn"
     }
   },
   "browserslist": [
@@ -147,6 +162,17 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "lodash",
+        {
+          "id": [
+            "lodash",
+            "recompose"
+          ]
+        }
+      ]
     ]
   }
 }

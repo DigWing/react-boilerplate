@@ -18,6 +18,7 @@ export default ({ redditName }) => ({
       Accept: 'application/json',
     },
   },
+  force: true,
   update: {
     posts: (prevEntities = Immutable.Map(), newEntities) => prevEntities.mergeDeep(newEntities),
   },

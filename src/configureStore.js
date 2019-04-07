@@ -2,12 +2,18 @@ import { createStore, applyMiddleware } from 'redux';
 import { queryMiddleware } from '@digitalwing.co/redux-query-immutable';
 import { createLogger } from 'redux-logger';
 import reducers, { getQueries, getEntities, getResults } from 'reducers';
-import { authTokenMiddleware } from 'middlewares';
+import {
+  authTokenMiddleware,
+  requestFailureMiddleware,
+  requestSuccessMiddleware,
+} from 'middlewares';
 import { Iterable } from 'immutable';
 
 export default () => {
   let middlewares = [
     authTokenMiddleware,
+    requestFailureMiddleware,
+    requestSuccessMiddleware,
     queryMiddleware(getQueries, getEntities, getResults),
   ];
 

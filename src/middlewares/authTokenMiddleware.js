@@ -10,29 +10,20 @@ import { actionTypes } from '@digitalwing.co/redux-query-immutable';
 export default () => next => (action) => {
   if ((
     _.isEqual(action.type, actionTypes.REQUEST_ASYNC)
-      || _.isEqual(action.type, actionTypes.MUTATE_ASYNC))
-    && action.meta.authToken) {
+    || _.isEqual(action.type, actionTypes.MUTATE_ASYNC))
+    && action.meta.authToken
+  ) {
     const callAPI = action;
-    const { headers } = action.options;
-
     delete callAPI.meta.authToken;
+    const userToken = token.getToken();
 
-    return token.getToken()
-      .then((T) => {
-        if (T) {
-          callAPI.options.headers = {
-            ...headers,
-            Authorization: `Bearer ${T}`,
-          };
-        }
-
-        return next(action);
-      })
-      .catch((err) => {
-        console.log(err);
-        return next(action);
-      });
+    if (userToken) {
+      callAPI.options.headers = {
+        ...callAPI.options.headers,
+        Authorization: `Bearer ${userToken}`,
+      };
+    }
+    return next(action);
   }
-
   return next(action);
 };
