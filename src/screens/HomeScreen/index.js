@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose, lifecycle } from 'recompose';
-import { apiHOCs } from 'components';
+import { redditApiHOC } from 'components/apiHOCs';
 
 import './style.scss';
 
@@ -23,7 +23,7 @@ HomeScreen.propTypes = {
 };
 
 export default compose(
-  apiHOCs.RedditApiHOC(),
+  redditApiHOC(),
 
   lifecycle({
     componentDidMount() {

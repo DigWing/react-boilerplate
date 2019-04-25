@@ -2,7 +2,7 @@
   "name": "react-boilerplate",
   "author": "Digital Wing",
   "homepage": "https://github.com/DigWing/react-boilerplate",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "keywords": [
     "react",
     "boilerplate",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@babel/core": "7.1.6",
-    "@digitalwing.co/redux-query-immutable": "^2.3.9",
+    "@digitalwing.co/redux-query-immutable": "^2.4.5",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -109,7 +109,8 @@
       "import/prefer-default-export": "warn",
       "implicit-arrow-linebreak": "off",
       "react/forbid-prop-types": "off",
-      "no-nested-ternary": "warn"
+      "no-nested-ternary": "warn",
+      "import/no-unresolved": "warn"
     }
   },
   "browserslist": [

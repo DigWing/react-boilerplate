@@ -1,5 +1,5 @@
 import getReddit from './getReddit';
 
-export default {
+export {
   getReddit,
 };

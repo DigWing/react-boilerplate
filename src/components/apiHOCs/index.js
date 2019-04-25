@@ -1,5 +1,5 @@
-import RedditApiHOC from './RedditApiHOC';
+import redditApiHOC from './redditApiHOC';
 
-export default {
-  RedditApiHOC,
+export {
+  redditApiHOC,
 };
