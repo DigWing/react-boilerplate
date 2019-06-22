@@ -4,12 +4,19 @@ import { createLogger } from 'redux-logger';
 import reducers, { getQueries, getEntities, getResults } from 'reducers';
 import {
   authTokenMiddleware,
+  requestStartMiddleware,
+  requestFailureMiddleware,
+  requestSuccessMiddleware,
 } from 'middlewares';
 import { Iterable } from 'immutable';
+import { createBrowserHistory } from 'history';
 
-export default () => {
+const configureStore = () => {
   let middlewares = [
+    requestStartMiddleware,
     authTokenMiddleware,
+    requestFailureMiddleware,
+    requestSuccessMiddleware,
     queryMiddleware(getQueries, getEntities, getResults),
   ];
 
@@ -29,3 +36,6 @@ export default () => {
     middlewares,
   );
 };
+
+export const history = createBrowserHistory();
+export const store = configureStore(history);

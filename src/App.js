@@ -1,12 +1,8 @@
 import React from 'react';
 import { Switch, Route, Router } from 'react-router';
-import createHistory from 'history/createBrowserHistory';
 import { Provider } from 'react-redux';
 import * as screens from 'screens';
-import configureStore from './configureStore';
-
-const history = createHistory();
-const store = configureStore(history);
+import { store, history } from './configureStore';
 
 const App = () => (
   <Provider store={store}>

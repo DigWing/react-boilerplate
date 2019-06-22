@@ -1,7 +1,6 @@
 {
   "name": "react-boilerplate",
   "author": "Digital Wing",
-  "homepage": "https://github.com/DigWing/react-boilerplate",
   "version": "0.3.0",
   "keywords": [
     "react",
@@ -15,7 +14,7 @@
   },
   "dependencies": {
     "@babel/core": "7.1.6",
-    "@digitalwing.co/redux-query-immutable": "^2.4.5",
+    "@digitalwing.co/redux-query-immutable": "2.3.9",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
