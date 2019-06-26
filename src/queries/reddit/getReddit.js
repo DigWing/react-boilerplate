@@ -24,7 +24,6 @@ export default ({ redditName }) => requestAsync({
   },
   updateResult: {
     posts:
-      (prevResult = Immutable.List(), result) =>
-        prevResult.toSet().union(result.toSet()).toList(), // || => result
+      (_, result) => result, // || => result
   },
 });

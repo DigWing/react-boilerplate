@@ -1,33 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { compose, lifecycle } from 'recompose';
-import { redditApiHOC } from 'components/apiHOCs';
+import React, { useEffect, memo } from 'react';
+import { useReddit } from 'features';
 
-import './style.scss';
+import styles from './style.module.scss';
 
-const HomeScreen = ({ redditPosts }) => (
-  <div className="home-layout">
-    {console.log(redditPosts)}
-    {
-      redditPosts.map(post => (
-        <div key={post.get('id')} style={{ paddingBottom: 50 }}>
-          {post.get('title')}
-        </div>
-      ))
-    }
-  </div>
-);
+const HomeScreen = () => {
+  const { redditPosts, getReddit } = useReddit();
+  const getReactReddit = () => getReddit({ redditName: 'reactjs' });
 
-HomeScreen.propTypes = {
-  redditPosts: PropTypes.object.isRequired,
+  useEffect(() => {
+    getReactReddit();
+  }, []);
+
+  const postStyle = { paddingBottom: 50 };
+
+  return (
+    <div className={styles.homeScreen}>
+      <button type="button" onClick={getReactReddit}>Click me</button>
+      {
+        redditPosts.map(post => (
+          <div key={post.get('id')} style={postStyle}>
+            {post.get('title')}
+          </div>
+        ))
+      }
+    </div>
+  );
 };
 
-export default compose(
-  redditApiHOC(),
-
-  lifecycle({
-    componentDidMount() {
-      this.props.getReddit({ redditName: 'reactjs' });
-    },
-  }),
-)(HomeScreen);
+export default memo(HomeScreen);
