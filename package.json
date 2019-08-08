@@ -192,11 +192,11 @@
     }
   },
   "lint-staged": {
-    "*.(js|jsx)": [
+    "src/*.(js|jsx)": [
       "npm run eslint",
       "git add"
     ],
-    "*.(css|sass|scss)": [
+    "src/*.(css|sass|scss)": [
       "npm run stylelint",
       "git add"
     ]
