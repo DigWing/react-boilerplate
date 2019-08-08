@@ -31,32 +31,50 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Learn More
+## Directory structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Project has default [CRA](https://github.com/facebook/create-react-app) structure after running `eject` script. Main difference is in `src` folder, which structure will be described below more detailed.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Overview
 
-### Code Splitting
+```
+src/
+├─ api/
+│  ├─ user/
+│  │  ├─ controller.js
+│  │  ├─ index.js
+│  │  ├─ index.test.js
+│  │  ├─ model.js
+│  │  └─ model.test.js
+│  └─ index.js
+├─ services/
+│  ├─ express/
+│  ├─ facebook/
+│  ├─ mongoose/
+│  ├─ passport/
+│  ├─ sendgrid/
+│  └─ your-service/
+├─ app.js
+├─ config.js
+└─ index.js
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### src/api/
 
-### Analyzing the Bundle Size
+Here is where the API endpoints are defined. Each API has its own folder.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### src/api/some-endpoint/model.js
 
-### Making a Progressive Web App
+It defines the Mongoose schema and model for the API endpoint. Any changes to the data model should be done here.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### src/api/some-endpoint/controller.js
 
-### Advanced Configuration
+This is the API controller file. It defines the main router middlewares which use the API model.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+#### src/api/some-endpoint/index.js
 
-### Deployment
+This is the entry file of the API. It defines the routes using, along other middlewares (like session, validation etc.), the middlewares defined in the `some-endpoint.controller.js` file.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### services/
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Here you can put `helpers`, `libraries` and other types of modules which you want to use in your APIs.

@@ -37,6 +37,7 @@
     "eslint-plugin-import": "2.18.0",
     "eslint-plugin-jsx-a11y": "6.2.1",
     "eslint-plugin-react": "7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "8.0.1",
@@ -47,7 +48,7 @@
     "jest": "^24.8.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "mini-css-extract-plugin": "0.7.0",
     "node-sass": "^4.12.0",
     "normalizr": "^3.4.0",
@@ -82,11 +83,16 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
+    "eslint": "eslint --ext .jsx,.js src/",
+    "stylelint": "stylelint src/**/*.{css,scss,sass}",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
+    "plugins": [
+      "react-hooks"
+    ],
     "extends": [
       "react-app",
       "airbnb"
@@ -109,6 +115,13 @@
       "react/forbid-prop-types": "off",
       "no-nested-ternary": "warn",
       "import/no-unresolved": "warn"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "at-rule-empty-line-before": null,
+      "font-family-no-missing-generic-family-keyword": null
     }
   },
   "browserslist": [
@@ -172,5 +185,27 @@
         }
       ]
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "npm run eslint",
+      "git add"
+    ],
+    "*.(css|sass|scss)": [
+      "npm run stylelint",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^3.0.3",
+    "lint-staged": "^9.2.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-webpack-plugin": "^0.10.5"
   }
 }

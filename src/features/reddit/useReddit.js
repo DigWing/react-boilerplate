@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getReddit } from 'queries/reddit';
 import { immutableShallowEqual } from 'helpers';
 
-import { getRedditPosts } from './selectors';
+import { getRedditPosts } from 'selectors';
 
 const useReddit = () => {
   const redditState = useSelector(state => ({
