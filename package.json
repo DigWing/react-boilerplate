@@ -85,7 +85,7 @@
   },
   "scripts": {
     "eslint": "eslint --ext .jsx,.js src/",
-    "stylelint": "stylelint src/**/*.{css,scss,sass}",
+    "stylelint": "stylelint \"src/**/*.{css,scss,sass}\"",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
@@ -115,7 +115,8 @@
       "implicit-arrow-linebreak": "off",
       "react/forbid-prop-types": "off",
       "no-nested-ternary": "warn",
-      "import/no-unresolved": "warn"
+      "import/no-unresolved": "warn",
+      "no-throw-literal": "off"
     }
   },
   "stylelint": {
