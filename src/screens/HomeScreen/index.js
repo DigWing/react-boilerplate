@@ -22,7 +22,6 @@ const HomeScreen = () => {
 
   return (
     <div className={styles.homeScreen}>
-      {console.log('render')}
       <BasicButton
         text="Click me"
         onClick={getReactReddit}
