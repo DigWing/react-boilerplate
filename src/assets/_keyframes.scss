@@ -9,3 +9,27 @@
     opacity: 1;
   }
 }
+
+@keyframes spinner-pulse {
+  0% {
+    transform: scale(1.5);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes spinner-pulse-inner {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

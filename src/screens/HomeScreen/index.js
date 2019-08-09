@@ -1,10 +1,11 @@
-import React, { useEffect, memo } from 'react';
-import { useReddit } from 'features/reddit';
+import React, { memo, useEffect } from 'react';
+import { useReddit } from 'hooks/api';
+import BasicButton from 'components/buttons/BasicButton';
 
 import styles from './style.module.scss';
 
 const HomeScreen = () => {
-  const { redditPosts, getReddit } = useReddit();
+  const { redditPosts, getReddit, redditIsFetching } = useReddit();
   const getReactReddit = () => getReddit({ redditName: 'reactjs' });
 
   useEffect(() => {
@@ -15,10 +16,19 @@ const HomeScreen = () => {
     padding: '15px 0',
   };
 
+  const buttonStyle = {
+    maxWidth: 100,
+  };
+
   return (
     <div className={styles.homeScreen}>
       {console.log('render')}
-      <button type="button" onClick={getReactReddit}>Click me</button>
+      <BasicButton
+        text="Click me"
+        onClick={getReactReddit}
+        style={buttonStyle}
+        isLoading={redditIsFetching}
+      />
       {
         redditPosts.map(post => (
           <div key={post.get('id')} style={postStyle}>

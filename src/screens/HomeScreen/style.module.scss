@@ -2,6 +2,7 @@
 
 .homeScreen {
   background: aliceblue;
+  padding: 10px;
 
   @media (max-width: $screenL) {
     background: green;

@@ -1,0 +1,29 @@
+@import '_variables';
+
+.basicButton {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background: #fff;
+  box-shadow: 0 5px 10px 0 rgba(0, 111, 238, 0.15);
+  border-radius: 5px;
+  font-family: $primary-font;
+  font-size: 20px;
+  color: $color-black;
+  letter-spacing: 0;
+  line-height: 13px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
