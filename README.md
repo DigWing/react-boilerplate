@@ -39,42 +39,82 @@ Project has default [CRA](https://github.com/facebook/create-react-app) structur
 
 ```
 src/
-├─ api/
-│  ├─ user/
-│  │  ├─ controller.js
-│  │  ├─ index.js
-│  │  ├─ index.test.js
-│  │  ├─ model.js
-│  │  └─ model.test.js
+├─ assets/
+│  ├─ ...
+│  └─ main.scss
+├─ components/
+│  ├─ blocks
+│  │  ├─ ComplexComponent
+│  │  │  ├─ index.js
+│  │  │  ├─ SomeChildComponent.js
+│  │  │  └─ style.module.scss
+│  ├─ buttons
+│  │  ├─ BasicButton
+│  │  │  ├─ index.js
+│  │  │  └─ style.module.scss
+│  ├─ forms
+│  └─ ...
+├─ consts/
+│  ├─ someHelper.js
+│  ├─ ...
 │  └─ index.js
-├─ services/
-│  ├─ express/
-│  ├─ facebook/
-│  ├─ mongoose/
-│  ├─ passport/
-│  ├─ sendgrid/
-│  └─ your-service/
-├─ app.js
-├─ config.js
+├─ helpers/
+│  └─ index.js
+├─ hooks/
+│  ├─ api/
+│  │  ├─ useSomeApi.js
+│  │  ├─ ...
+│  │  └─ index.js
+│  └─ ...
+├─ middlewares/
+├─ queries/
+│  ├─ someService/
+│  │  ├─ getSomething.js
+│  │  ├─ postSomething.js
+│  │  ├─ ...
+│  │  └─ index.js
+│  └─ ...
+├─ reducers/
+├─ schemas/
+├─ screens/
+├─ selectors/
+├─ App.js
+├─ configureStore.js
 └─ index.js
 ```
 
-### src/api/
+### src/assets/
 
-Here is where the API endpoints are defined. Each API has its own folder.
+Directory where all assets must be placed. Usually has _fonts_ and _img_ subdirectories. Also here are located all global scss files, including _main.scss_ (webpack styles entrypoint) and different _extend_ files (keyframes, fonts, variables, etc.). Extend files names must begin from _.
 
-#### src/api/some-endpoint/model.js
+### src/components
 
-It defines the Mongoose schema and model for the API endpoint. Any changes to the data model should be done here.
+Directory with all React components. Has many subdirectories (blocks, buttons, forms, modals, etc.).
 
-#### src/api/some-endpoint/controller.js
+#### src/components/blocks
 
-This is the API controller file. It defines the main router middlewares which use the API model.
+Example of subdirectory in components. Can have more subdirectories (e.g. components/blocks/auth - here must be all specific auth blocks placed).
 
-#### src/api/some-endpoint/index.js
+#### src/components/blocks/Component
 
-This is the entry file of the API. It defines the routes using, along other middlewares (like session, validation etc.), the middlewares defined in the `some-endpoint.controller.js` file.
+Directory with any React component. Every directory has _index.js_ file with logic and _style.module.scss_ file with styles. Can have _ChildComponent.js_ files, if main component is complex and child components aren't reused somewhere in project.
 
-### services/
+### src/consts
 
-Here you can put `helpers`, `libraries` and other types of modules which you want to use in your APIs.
+Directory with project constants. Has _index.js_ file with list of consts, which must be exported as single object. Can have more files for complex consts (e.g. long arrays/objects), but they still should be exported in index file.
+
+### src/helpers
+
+Directory with helper functions. There should be all functions placed, which are reused/can be reused in project. Every helper has single js file (e.g. _someHelper.js_). All helpers should be exported in _index.js_ file.
+
+### src/hooks
+
+Directory with React hooks. Every hook has single js file (e.g. _someHook.js_). All hooks should be exported in _index.js_ file.
+
+#### src/hooks/api
+
+Subdirectory with api hooks. Api hook is a pattern for building api interactions. From such a hook developer can get:
+* Action: query to server. Actions are made from [redux-query](https://github.com/amplitude/redux-query) query configs (more info in **queries** paragraph). 
+* Different info about query, such as _isFetching_, _isFinished_, _lastUpdated_, _queryCount_.
+* Query result from redux store, which came from server after query. Example: query _getUser_ gives us as result user entity, which should be available in _useUserApi_ hook in field _user_.
+

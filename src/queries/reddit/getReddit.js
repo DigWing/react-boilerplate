@@ -1,7 +1,7 @@
 import { normalize } from 'normalizr';
 import { endpoints } from 'consts';
 import { requestAsync } from '@digitalwing.co/redux-query-immutable';
-import Immutable from 'immutable';
+import * as Immutable from 'immutable';
 import { posts } from 'schemas';
 
 export default ({ redditName }) => requestAsync({

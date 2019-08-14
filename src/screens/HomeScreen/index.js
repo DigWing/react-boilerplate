@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useReddit } from 'hooks/api';
 import BasicButton from 'components/buttons/BasicButton';
 
@@ -39,5 +39,4 @@ const HomeScreen = () => {
   );
 };
 
-// memo here is useless, but don't forget about it
-export default memo(HomeScreen);
+export default HomeScreen;
