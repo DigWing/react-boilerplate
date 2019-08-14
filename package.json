@@ -42,6 +42,7 @@
     "file-loader": "4.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "8.0.1",
+    "git-revision-webpack-plugin": "^3.0.3",
     "history": "^4.9.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
@@ -195,11 +196,11 @@
   },
   "lint-staged": {
     "src/**/*.(js|jsx)": [
-      "npm run eslint",
+      "eslint",
       "git add"
     ],
     "src/**/*.(css|sass|scss)": [
-      "npm run stylelint",
+      "stylelint",
       "git add"
     ]
   },
