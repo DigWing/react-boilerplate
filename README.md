@@ -78,6 +78,7 @@ src/
 ├─ schemas/
 ├─ screens/
 ├─ selectors/
+├─ validators/
 ├─ App.js
 ├─ configureStore.js
 └─ index.js
@@ -118,3 +119,46 @@ Subdirectory with api hooks. Api hook is a pattern for building api interactions
 * Different info about query, such as _isFetching_, _isFinished_, _lastUpdated_, _queryCount_.
 * Query result from redux store, which came from server after query. Example: query _getUser_ gives us as result user entity, which should be available in _useUserApi_ hook in field _user_.
 
+### src/middlewares
+
+Directory with Redux middlewares. Every middleware has single js file (e.g. _someMiddleware.js_). All middlewares should be exported in _index.js_ file.
+
+### src/queries
+
+Directory with configs for api queries. All query config files are in subdirectories by resource they get (e.g. user) or by project global sections (e.g. settings). Subdirectory has many query config files, which names starts with query type (e.g. _getUser.js_). All query config files by subdirectory should be exported in _index.js_ file. Config documentation can be found in [redux-query](https://github.com/amplitude/redux-query) library documentation.
+
+Query config file in this project architecture is more than just config - it is a function, which gets arguments and makes action (e.g. _requestAsync_). All action types can be also found in redux-query documentation.
+
+In project we are using fork of redux-query - [redux-query-immutable](https://github.com/DigWing/redux-query-immutable). First of all, it makes redux immutable (based on [immutable.js](https://immutable-js.github.io/immutable-js/docs/#/)). Second - it provides more custom actions. In addition to redux-query basic [_updateEntities_](https://amplitude.github.io/redux-query/docs/redux-actions#updateentities) actions it provides _updateResults_ action to handle normalized data (based on [normalizr](https://github.com/paularmstrong/normalizr)). Also query config has fields _transformResult_ and _updateResult_, where normalized data keys is sent. Basic entities reducer is used for normalizr entities, results reducer for all other application data.
+
+### src/reducers
+
+Directory with Redux reducers.
+
+### src/schemas
+
+Directory with normalizr schemas. Every schema has single js file (e.g. _users.js_). Every schema should export _schema_ and _schemasArray_. Key should be similar as filename. All schemas should be exported in _index.js_ file.
+
+### src/screens
+
+Directory with all screens in project. Every subdirectory is either single screen, or group of strings with wrapper, with handles all routes of group and has visual wrapper, if screen group needs it. Every single screen is in directory and most of the time also has _style.module.scss_ file.
+
+### src/selectors
+
+Directory with selectors, made by [reselect](https://github.com/reduxjs/reselect).
+
+### src/validators (_optional, if redux-form is used in project_)
+
+Directory with validators for [redux-form](https://redux-form.com/8.1.0/docs/api/reduxform.md/).
+
+### src/App.js
+
+Main file with all global routes and other stuff.
+
+### src/configureStore.js
+
+File with Redux configuration. Exporting Redux _store_ and React Router _history_.
+
+### src/index.js
+
+Project entrypoint.
