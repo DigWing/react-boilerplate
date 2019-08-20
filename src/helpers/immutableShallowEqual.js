@@ -4,6 +4,7 @@
  * which works correct with immutable store
  */
 import { isImmutable } from 'immutable';
+
 var hasOwn = Object.prototype.hasOwnProperty;
 
 function isForStore(x, y) {

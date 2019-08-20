@@ -1,9 +1,9 @@
 /*
-* Функция, которая возвращает query url params в корректном виде
+* Function which transforms object in string with url query params
 *
-* @param {object} body - Объект с параметрами, которые нужно преобразовать в нужный вид
+* @param {object} body - Object with params, which need to be transformed
 *
-* @returns {string} Число, сокращенное до указанного количества знаков после запятой
+* @returns {string} - String with query params
  */
 
 export default (body) => {
