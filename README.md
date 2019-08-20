@@ -104,6 +104,14 @@ Directory with any React component. Every directory has _index.js_ file with log
 
 Directory with project constants. Has _index.js_ file with list of consts, which must be exported as single object. Can have more files for complex consts (e.g. long arrays/objects), but they still should be exported in index file.
 
+### src/consts/endpoints
+
+File for api endpoints. All endpoints are created as functions which return strings and can get url parts or query params as arguments.
+
+### src/consts/routes
+
+File for all routes in project. They are created as functions, which return route strings. Can get arguments, e.g. for routes with id's.
+
 ### src/helpers
 
 Directory with helper functions. There should be all functions placed, which are reused/can be reused in project. Every helper has single js file (e.g. _someHelper.js_). All helpers should be exported in _index.js_ file.
