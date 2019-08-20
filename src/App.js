@@ -1,14 +1,15 @@
 import React from 'react';
 import { Switch, Route, Router } from 'react-router';
 import { Provider } from 'react-redux';
-import * as screens from 'screens';
+import HomeScreen from 'screens/HomeScreen';
+import { routes } from 'consts';
 import { store, history } from './configureStore';
 
 const App = () => (
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route path="/" component={screens.HomeScreen} />
+        <Route path={routes.getBase()} component={HomeScreen} />
       </Switch>
     </Router>
   </Provider>
