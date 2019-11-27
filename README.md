@@ -1,8 +1,8 @@
 # React boilerplate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using [digitalwing.co](https://digitalwing.co) usual project architecture.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using Digital Wing team usual project architecture.
 
-![Digital Wing logo](https://digitalwing.co/public/dw-github.jpg)
+![Digital Wing logo](https://hsto.org/getpro/moikrug/uploads/company/100/006/248/9/logo/medium_63af701774a2b4f9785e64825dcd73d9.png)
 
 ## Available Scripts
 
@@ -84,7 +84,7 @@ src/
 └─ index.js
 ```
 
-### src/assets/
+### src/assets
 
 Directory where all assets must be placed. Usually has _fonts_ and _img_ subdirectories. Also here are located all global scss files, including _main.scss_ (webpack styles entrypoint) and different _extend_ files (keyframes, fonts, variables, etc.). Extend files names must begin from _.
 
@@ -133,7 +133,7 @@ Directory with Redux middlewares. Every middleware has single js file (e.g. _som
 
 ### src/queries
 
-Directory with configs for api queries. All query config files are in subdirectories by resource they get (e.g. user) or by project global sections (e.g. settings). Subdirectory has many query config files, which names starts with query type (e.g. _getUser.js_). All query config files by subdirectory should be exported in _index.js_ file. Config documentation can be found in [redux-query](https://github.com/amplitude/redux-query) library documentation.
+Directory with configs for api queries. All query config files are in subdirectories by resource they get (e.g. _user_) or by project global sections (e.g. _settings_). Subdirectory has many query config files, which names starts with query type (e.g. _getUser.js_). All query config files by subdirectory should be exported in _index.js_ file. Config documentation can be found in [redux-query](https://github.com/amplitude/redux-query) library documentation.
 
 Query config file in this project architecture is more than just config - it is a function, which gets arguments and makes action (e.g. _requestAsync_). All action types can be also found in redux-query documentation.
 
