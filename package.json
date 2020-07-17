@@ -17,7 +17,7 @@
     "classnames": "^2.2.6",
     "history": "^4.9.0",
     "immutable": "^4.0.0-rc.12",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "normalizr": "^3.4.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
